@@ -1,0 +1,46 @@
+<%- include('../../partials/header') %>
+<%- include('../../partials/navbar') %>
+
+<div class="container">
+    <hr>
+    <h2>Usuários</h2>
+    <a class="btn btn-success" href="/admin/users/create">Criar novo usuário</a>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user => { %>
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.email %></td>
+                    <td>
+                        <form method="post" action="/users/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                            <input type="hidden" name="id" value="<%= user.id %>" />
+                            <button class="btn btn-outline-danger">Excluir</button>
+                        </form> 
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>   
+</div>
+
+<%- include('../../partials/footer') %>
+<script>
+    function confirmarDelecao(event, form){
+        event.preventDefault();
+        let decision = confirm('Deseja realmente excluir este usuário?');
+        if(decision){
+            form.submit();
+        }  else {
+            
+        }
+    }
+</script>

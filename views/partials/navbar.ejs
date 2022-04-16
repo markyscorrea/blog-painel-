@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <a class="navbar-brand" href="/">
+        GuiaPress
+    </a>
+
+    <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/categories">Categorias</a>
+        </li>
+        <li class="nav-item ms-2">
+            <a class="nav-link" href="/admin/articles">Artigos</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item m-2">
+            <a class="nav-link" href="/admin/users">Usuários</a>
+        </li>
+        <li class="nav-item m-2">
+            <form method="post" action="/logout" onsubmit="confirmaLogout(event, this)">
+                <button class="btn nav-link">Sair</button>
+            </form>    
+        </li>
+        
+    </ul>
+
+</nav>
+<script>
+
+    function confirmaLogout(event, form){
+        event.preventDefault();
+        let decision = confirm('Deseja realmente sair?');
+        if(decision){
+            form.submit();
+        }  else {
+            
+        }
+    }
+
+</script>

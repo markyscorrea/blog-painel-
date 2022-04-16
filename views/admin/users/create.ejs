@@ -1,0 +1,21 @@
+<%- include('../../partials/header') %>
+<%- include('../../partials/navbar') %>
+
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">
+            <h2>Criação de Usuário</h2>
+        </div>
+        <div class="card-body d-grid">
+            <form method="post" action="/users/create">
+                <input class="form-control mb-2" type="email" name="email" placeholder="email@example.com">
+                <input class="form-control mb-2" type="password" name="password"email" placeholder="********">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success d-grid">Criar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../../partials/footer') %>

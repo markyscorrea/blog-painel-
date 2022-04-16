@@ -1,0 +1,21 @@
+<%- include('../../partials/header') %>
+
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">
+            <h2>Login de Adm</h2>
+        </div>
+        <div class="card-body d-grid">
+            <h5>Faça o login para realizar edições no blog!</h5>
+            <form method="post" action="/authenticate">
+                <input class="form-control mb-2" type="email" name="email" placeholder="email@example.com">
+                <input class="form-control mb-2" type="password" name="password"email" placeholder="********">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success d-grid">Logar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../../partials/footer') %>

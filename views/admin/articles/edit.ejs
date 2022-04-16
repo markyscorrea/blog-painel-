@@ -1,0 +1,53 @@
+<%- include('../../partials/header') %>
+<body>
+    <%- include('../../partials/navbar') %>
+    <div class="container">
+        <hr>
+        <div class="card">
+            <div class="card-header">
+                <h2>Editar artigo</h2>
+            </div>
+            <div class="card-body">
+                <form method="post" action="/articles/update">
+                    <input class="form-control" type="text" name="title" placeholder="Defina o título do artigo" value="<%= article.title %>">
+                    <input type="hidden" name="id" value=" <%= article.id %> ">
+                    <textarea id="article" class="form-control mt-3" placeholder="Escreva o artigo aqui" name="body"></textarea>
+                    <label class="m-2">Categoria</label>
+                    <select name="category" class="form-control">
+                        <% categories.forEach(category => { %>
+
+                            <% if (category.id == article.categoryId) { %>
+                                <option value="<%= category.id %>" selected> <%= category.title %> </option>
+                            <% } else { %>
+                                <option value="<%= category.id  %>"> <%= category.title %> </option>
+                            <% } %>
+                        <% }) %>
+                    </select>
+                    <button class="btn btn-success mt-3">Atualizar</button>
+                </form>
+            </div>        
+        </div>
+    </div>
+    <div id="content" style="display: none">
+        <%- article.body %>
+    </div>
+    
+</body>
+
+<%- include('../../partials/footer') %>
+
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+
+    tinymce.init({
+        language: 'pt_BR',
+        selector: '#article',
+        plugins: [
+            'advlist autolink lists link image searchreplace insertdatetime wordcount media charmap fullscreen print table code paste preview anchor',
+        ],
+        init_instance_callback: () => {
+            tinymce.get('article').setContent(document.getElementById('content').innerHTML);
+        }
+    });
+
+</script>
