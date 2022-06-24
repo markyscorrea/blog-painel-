@@ -42,7 +42,7 @@ Para configurar a conexão, abra o arquivo database.js e altere os dados:
 ---
 
 ## 🔎 Observações
-Projeto feito no curso Formação Node.JS.
+Projeto feito no curso Formação NodeJS.
 
 ---
 
